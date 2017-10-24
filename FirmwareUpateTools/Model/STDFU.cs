@@ -536,6 +536,7 @@ namespace FirmwareUpateTools.Model
                                             }*/
 
                                             threadTimer.Change(-1, -1);
+                                            STDFUAPI.STDFUFILES_CloseDFUFile(hFile);
                                             return;
                                         }
                                         else
@@ -1079,7 +1080,7 @@ namespace FirmwareUpateTools.Model
             }
             m_CurrentTarget = 0;
             LaunchUpload();
-            threadTimer.Change(0, 500);
+            threadTimer.Change(0, 600);
             
         }
 
@@ -1094,7 +1095,7 @@ namespace FirmwareUpateTools.Model
             }
             m_CurrentTarget = Target;
             LaunchUpload();
-            threadTimer.Change(0, 500);
+            threadTimer.Change(0, 600);
 
         }
 
@@ -1109,7 +1110,7 @@ namespace FirmwareUpateTools.Model
             Verify = true;
             Optimize = true;
             LaunchUpgrade();
-            threadTimer.Change(0, 500);
+            threadTimer.Change(0, 600);
 
         }
 
@@ -1124,7 +1125,7 @@ namespace FirmwareUpateTools.Model
             Verify = isVerify;
             Optimize = true;
             LaunchUpgrade();
-            threadTimer.Change(0, 500);
+            threadTimer.Change(0, 600);
 
         }
 
@@ -1139,7 +1140,7 @@ namespace FirmwareUpateTools.Model
             Verify = isVerify;
             Optimize = isOptimize;
             LaunchUpgrade();
-            threadTimer.Change(0, 500);
+            threadTimer.Change(0, 600);
         }
 
 

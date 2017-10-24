@@ -137,13 +137,13 @@ namespace FirmwareUpateTools.ViewModel
 
         private void _uploadFileClickCommand()
         {
-            Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
-            openFileDialog.Filter = "固件文件(*.dfu)|*.dfu";
-            openFileDialog.FilterIndex = 1;
-            openFileDialog.RestoreDirectory = true;
-            if (openFileDialog.ShowDialog() == true)
+            Microsoft.Win32.SaveFileDialog saveFileDialog = new Microsoft.Win32.SaveFileDialog();
+            saveFileDialog.Filter = "固件文件(*.dfu)|*.dfu";
+            saveFileDialog.FilterIndex = 1;
+            saveFileDialog.RestoreDirectory = true;
+            if (saveFileDialog.ShowDialog() == true)
             {
-                sTDFU.UploadDFUFile( openFileDialog.FileName);
+                sTDFU.UploadDFUFile(saveFileDialog.FileName);
             }
         }
 
