@@ -23,6 +23,13 @@ namespace FirmwareUpateTools
         public MainWindow()
         {
             InitializeComponent();
+            
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            ((ViewModel.MainWindowViewModel)DataContext).RegisterWindow(this);
+        }
+        
     }
 }

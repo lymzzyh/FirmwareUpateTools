@@ -4,9 +4,40 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FirmwareUpateTools"
+        xmlns:ViewModel="clr-namespace:FirmwareUpateTools.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="FirmwareUpateTools" Height="350" Width="525" Loaded="Window_Loaded">
+    <Window.DataContext>
+        <ViewModel:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="75"/>
+            </Grid.ColumnDefinitions>
+            <ComboBox Grid.Column="0" Height="21" ItemsSource="{Binding DeviceList}" DisplayMemberPath="Name" SelectedIndex="{Binding CurrentIndex}" VerticalContentAlignment="Center" Margin="5,0"/>
+            <TextBox Grid.Column="1"  Height="21" Margin="5,0" Text="{Binding DownloadFilePath}" />
+            <Button Grid.Column="2" Content="浏览" Height="21" Command="{Binding ChooseDownloadFileClickCommand}"  Margin="0,14" Width="75"/>
+        </Grid>
+        <ScrollViewer ViewModel:ScrollViewerExtensions.AlwaysScrollToEnd="True" Grid.Row="1" Margin="10,10,10,10" VerticalScrollBarVisibility="Auto">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding PrintText}" VerticalAlignment="Top" />
+        </ScrollViewer>
+        <ProgressBar Grid.Row="2" Margin="10,5,10,5" Value="{Binding Percent}" />
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="备份" Margin="80,0" Height="21" Command="{Binding UploadFileClickCommand}"/>
+            <Button Grid.Column="1" Content="更新" Margin="80,0" Height="21" Command="{Binding DownloadFileClickCommand}" IsEnabled="{Binding DownloadButtonEnable}"/>
+        </Grid>
     </Grid>
 </Window>
