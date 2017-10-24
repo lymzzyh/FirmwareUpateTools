@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FirmwareUpateTools"
         xmlns:ViewModel="clr-namespace:FirmwareUpateTools.ViewModel"
         mc:Ignorable="d"
-        Title="FirmwareUpateTools" Height="350" Width="525" Loaded="Window_Loaded">
+        Title="FirmwareUpateTools" Height="350" Width="525" Loaded="Window_Loaded" Icon="Icon/icon.ico">
     <Window.DataContext>
         <ViewModel:MainWindowViewModel/>
     </Window.DataContext>
