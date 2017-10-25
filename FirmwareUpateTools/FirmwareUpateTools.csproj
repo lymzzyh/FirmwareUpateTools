@@ -106,10 +106,20 @@
     <Resource Include="Icon\icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Libraries\STDFU.dll" />
-    <None Include="Libraries\STDFUFiles.dll" />
-    <None Include="Libraries\STDFUPRT.dll" />
-    <None Include="Libraries\STTubeDevice30.dll" />
+    <None Include="STDFU.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="STDFUFiles.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="STDFUPRT.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="STTubeDevice30.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
