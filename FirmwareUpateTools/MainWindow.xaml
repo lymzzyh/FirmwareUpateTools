@@ -35,9 +35,11 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="备份" Margin="80,0" Height="21" Command="{Binding UploadFileClickCommand}"/>
-            <Button Grid.Column="1" Content="更新" Margin="80,0" Height="21" Command="{Binding DownloadFileClickCommand}" IsEnabled="{Binding DownloadButtonEnable}"/>
+            <CheckBox Grid.Column="0" Content="自动更新" Margin="10,0" Height="21" IsChecked="{Binding AutoDownloadEnable}"/>
+            <Button Grid.Column="1" Content="备份" Margin="40,0" Height="21" Command="{Binding UploadFileClickCommand}"/>
+            <Button Grid.Column="2" Content="更新" Margin="40,0" Height="21" Command="{Binding DownloadFileClickCommand}" IsEnabled="{Binding DownloadButtonEnable}"/>
         </Grid>
     </Grid>
 </Window>

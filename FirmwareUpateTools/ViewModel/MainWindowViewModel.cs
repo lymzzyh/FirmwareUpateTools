@@ -15,6 +15,7 @@ namespace FirmwareUpateTools.ViewModel
         private STDFU sTDFU = new STDFU(); 
 
         public List<DFUDevice> DeviceList { get => sTDFU.Device; set => sTDFU.Device = value; }
+        public bool AutoDownloadEnable { get; set; }
         public int CurrentIndex { get => sTDFU.m_CurrentDevice; set => sTDFU.m_CurrentDevice = value; }
         public string PrintText { get => sTDFU.PrintText; set => sTDFU.PrintText = value; }
         public int Percent { get => sTDFU.ContextPercent; set => sTDFU.ContextPercent = value; }
@@ -65,6 +66,7 @@ namespace FirmwareUpateTools.ViewModel
                 sTDFU.Refresh();
                 OnPropertyChanged("DeviceList");
                 OnPropertyChanged("CurrentIndex");
+                MaybeAutoDownload();
             }
             else
             {
@@ -74,6 +76,15 @@ namespace FirmwareUpateTools.ViewModel
             }
         }
 
+        private void MaybeAutoDownload()
+        {
+            if(AutoDownloadEnable
+                && DownloadFilePath != ""
+                && DeviceList.Count > 0)
+            {
+                _downloadFileClickCommand();
+            }
+        }
 
 
 
